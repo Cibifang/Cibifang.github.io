@@ -99,20 +99,27 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小巫的笔记本">
-<meta property="og:url" content="https://cibifang.github.io/index.html">
+  <meta name="description" content="背景win10发布的linux子系统可以说是程序员的福音了，经过几次版本更新，配合适当的设置，开发需要的linux基本功能基本都具备了，进一步降低了购买mac的必要性（日常黑一下）。 目前网上关于WSL的文章虽然不算很多，但也不算少了。所以对于基本的安装/配置我们不再赘述。这篇blog主要是为了安利一个windows下的终端————Hyper；然后会提及一些个人使用子系统的经验，希望可以帮到大家~">
+<meta name="keywords" content="WSL,Hyper,Windows,Bash on Windows,linux,ubuntu,cmder">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bash on Windows(WSL)优化: 使用Hyper作为命令行终端(与cmder比较)">
+<meta property="og:url" content="https://cibifang.github.io/2018/04/10/Bash-on-Windows-WSL-优化-使用Hyper作为命令行终端-与cmder比较/index.html">
 <meta property="og:site_name" content="小巫的笔记本">
+<meta property="og:description" content="背景win10发布的linux子系统可以说是程序员的福音了，经过几次版本更新，配合适当的设置，开发需要的linux基本功能基本都具备了，进一步降低了购买mac的必要性（日常黑一下）。 目前网上关于WSL的文章虽然不算很多，但也不算少了。所以对于基本的安装/配置我们不再赘述。这篇blog主要是为了安利一个windows下的终端————Hyper；然后会提及一些个人使用子系统的经验，希望可以帮到大家~">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://za8ttq.ch.files.1drv.com/y4mitkzdTQuymgFSNcqeERcCvzrdB0lkDQIRogNvaOU_Gdc1nyBNJanB_rBuMoTPrp4qTm5iXGWiTnAb9gDzaMGNWOV5biV-4bM924FTwXSTZqMkOxglhvn1SCz1AiqEzhdfEAHXdPrR1qBEU9BmWu5PtI4_rF2cMvJ3F5Pyry09kk78uoOQlEExGvYGwpSsVBthg9si_u_AjSs5y6JAGJOcQ/hyper-using.PNG?psid=1">
+<meta property="og:updated_time" content="2018-05-22T03:35:03.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小巫的笔记本">
+<meta name="twitter:title" content="Bash on Windows(WSL)优化: 使用Hyper作为命令行终端(与cmder比较)">
+<meta name="twitter:description" content="背景win10发布的linux子系统可以说是程序员的福音了，经过几次版本更新，配合适当的设置，开发需要的linux基本功能基本都具备了，进一步降低了购买mac的必要性（日常黑一下）。 目前网上关于WSL的文章虽然不算很多，但也不算少了。所以对于基本的安装/配置我们不再赘述。这篇blog主要是为了安利一个windows下的终端————Hyper；然后会提及一些个人使用子系统的经验，希望可以帮到大家~">
+<meta name="twitter:image" content="https://za8ttq.ch.files.1drv.com/y4mitkzdTQuymgFSNcqeERcCvzrdB0lkDQIRogNvaOU_Gdc1nyBNJanB_rBuMoTPrp4qTm5iXGWiTnAb9gDzaMGNWOV5biV-4bM924FTwXSTZqMkOxglhvn1SCz1AiqEzhdfEAHXdPrR1qBEU9BmWu5PtI4_rF2cMvJ3F5Pyry09kk78uoOQlEExGvYGwpSsVBthg9si_u_AjSs5y6JAGJOcQ/hyper-using.PNG?psid=1">
 
 
 
 
 
 
-  <link rel="canonical" href="https://cibifang.github.io/"/>
+  <link rel="canonical" href="https://cibifang.github.io/2018/04/10/Bash-on-Windows-WSL-优化-使用Hyper作为命令行终端-与cmder比较/"/>
 
 
 
@@ -122,7 +129,7 @@
   };
 </script>
 
-  <title>小巫的笔记本</title>
+  <title>Bash on Windows(WSL)优化: 使用Hyper作为命令行终端(与cmder比较) | 小巫的笔记本</title>
   
 
 
@@ -169,8 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -255,9 +261,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -289,9 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/10/Bash-on-Windows-WSL-优化-使用Hyper作为命令行终端-与cmder比较/" itemprop="url">Bash on Windows(WSL)优化: 使用Hyper作为命令行终端(与cmder比较)</a></h1>
+          <h1 class="post-title" itemprop="name headline">Bash on Windows(WSL)优化: 使用Hyper作为命令行终端(与cmder比较)</h1>
         
 
         <div class="post-meta">
@@ -358,9 +362,7 @@
       
 
       
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>win10发布的linux子系统可以说是程序员的福音了，经过几次版本更新，配合适当的设置，<br>开发需要的linux基本功能基本都具备了，进一步降低了购买mac的必要性（日常黑一下）。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>win10发布的linux子系统可以说是程序员的福音了，经过几次版本更新，配合适当的设置，<br>开发需要的linux基本功能基本都具备了，进一步降低了购买mac的必要性（日常黑一下）。</p>
 <p>目前网上关于WSL的文章虽然不算很多，但也不算少了。所以对于基本的安装/配置我们不再赘述。<br>这篇blog主要是为了安利一个windows下的终端————<a href="https://hyper.is/" target="_blank" rel="noopener">Hyper</a>；然后会提及一些个人使用子系统的经验，希望可以帮到大家~</p>
 <blockquote>
 <p>先放一个Hyper的使用图给大家看一看</p>
@@ -439,8 +441,6 @@
 </li>
 </ol>
 
-          
-        
       
     </div>
 
@@ -458,190 +458,48 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cibifang.github.io/2018/03/22/linux环境下如何切断指定的tcp连接/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="沉小巫">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://drjhsg.ch.files.1drv.com/y4moQQCp8not20EtmuoBnaTnlgjMhDHOzN_bTJ5BuYcTC8p0ekdeK3srvvgF18PuUKMiCPwVcFxwynZWYT07lhllwkG6jehOEQJLRPElVksw2AWsW_lXjzhIUcv_PvzIzxA0DLMt8UNRzs-g-3rWJxaXT-g2HntY5Yr1bkEA-4S2M8SvcPAZD9K4HN5iBJNmUerQ-29N_HnU3wIvD5BMEGNrQ?width=1199&height=1199&cropmode=none">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小巫的笔记本">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/22/linux环境下如何切断指定的tcp连接/" itemprop="url">linux环境下如何切断指定的tcp连接</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T16:12:13+08:00">2018-03-22</time>
-            
-
-            
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Technology/" itemprop="url" rel="index"><span itemprop="name">Technology</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/WSL/" rel="tag"># WSL</a>
           
-
+            <a href="/tags/Hyper/" rel="tag"># Hyper</a>
           
-            
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
           
-
+            <a href="/tags/Bash-on-Windows/" rel="tag"># Bash on Windows</a>
           
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
-
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
           
-
+            <a href="/tags/cmder/" rel="tag"># cmder</a>
           
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>调试Janus的时候，为了模拟websocket重连的场景，需要单独切断已经存在的websocket连接。<br>概括一下场景：</p>
-<ol>
-<li>tcp连接</li>
-<li>已经建立</li>
-<li>不能直接关闭服务进程</li>
-</ol>
-<p>一般面对这种和连接相关的问题，第一想法就是iptables；<br>不过因为iptables的禁用对已经建立的tcp连接无效（这是由tcp的机制决定的），因此在这个场景中并不适用。</p>
-<h1 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h1><p>搜索引擎是最好的老师，Google一下~<br>不过这次略有些不顺，使用”切断””tcp连接”等作为关键词的时候并没有找到适用的解决方法。唯一一个明显适用这个场景的论坛提问里，大家讨论了3页也没有找到合适的解决方案…</p>
-<p>然后试着使用英文关键词搜索了下(“close””tcp connection””linus”)，顺利查到答案（=´∇｀=）<br>大受好评的是<a href="https://linux.die.net/man/8/tcpkill" target="_blank" rel="noopener">tcpkill</a>和<a href="http://killcx.sourceforge.net/" target="_blank" rel="noopener">killcx</a>。前者是一个命令行工具，后者是一个perl脚本。</p>
-<p>我这次使用的是tcpkill。</p>
-<h2 id="tcpkill-介绍"><a href="#tcpkill-介绍" class="headerlink" title="tcpkill 介绍"></a>tcpkill 介绍</h2><p>tcpkill属于网络嗅探工具包dsniff，因此使用时安装dsniff就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># for CentOS</span><br><span class="line">yum -y install dsniff --enablerepo=epel</span><br><span class="line"></span><br><span class="line"># for Ubuntu</span><br><span class="line">sudo apt-get install dsniff</span><br></pre></td></tr></table></figure></p>
-<p>在命令中使用man查看的话，可以看到如下介绍:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Name</span><br><span class="line">tcpkill - kill TCP connections on a LAN</span><br><span class="line"></span><br><span class="line">Synopsis</span><br><span class="line">tcpkill [-i interface] [-1...9] expression</span><br><span class="line"></span><br><span class="line">Description</span><br><span class="line">tcpkill kills specified in-progress TCP connections (useful for libnids-based applications which require a full TCP 3-whs for TCB creation).</span><br><span class="line"></span><br><span class="line">Options</span><br><span class="line">-i interface</span><br><span class="line"></span><br><span class="line">Specify the interface to listen on.</span><br><span class="line">-1...9</span><br><span class="line">Specify the degree of brute force to use in killing a connection. Fast connections may require a higher number in order to land a RST in the moving receive window. Default is 3.</span><br><span class="line"></span><br><span class="line">expression</span><br><span class="line">Specify a tcpdump(8) filter expression to select the connections to kill.</span><br><span class="line">See Also</span><br><span class="line">dsniff(8), tcpnice(8)</span><br><span class="line"></span><br><span class="line">Author</span><br><span class="line">Dug Song &lt;dugsong@monkey.org&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="tcpkill-实际使用"><a href="#tcpkill-实际使用" class="headerlink" title="tcpkill 实际使用"></a>tcpkill 实际使用</h2><p>我要关闭的是一个websocket连接，考虑到服务器的websocket端口其他client也会使用，所以决定通过指定client的发送端口来关闭连接。<br>首先使用netstat得到远端端口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 8188 是服务器的websocket端口</span><br><span class="line">netstat -n |grep 8188</span><br></pre></td></tr></table></figure></p>
-<p>结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcp        0      0 server_ip:8188     client_ip:54774     ESTABLISHED</span><br></pre></td></tr></table></figure></p>
-<p>接着使用tcpkill关闭查到的端口(54774)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># &quot;-i&quot; 后面的bond0是网卡，可以通过ifconfig找到</span><br><span class="line"># &quot;-9&quot; 表示关闭连接的迫切程度，越大表示越强制，默认是3</span><br><span class="line"># &quot;port 54774&quot; 是指定连接的表达式，这个和iptables差不多</span><br><span class="line">tcpkill -i bond0 -9 port 54774</span><br></pre></td></tr></table></figure></p>
-<p>运行该命令后命令行提示<code>tcpkill: listening on bond0 [port 54774]</code>，然后挂起。<br>从服务器日志可以观察到连接并没有立刻中止，而是在服务器和客户端发生网络交互之后（命令行这边会打印相关交互信息），连接顺利中断(・´ω`・)</p>
-<p>在tcpkill挂起的bash那边使用<code>ctrl+c</code>中止运行之后，指定的端口就又可以使用啦。</p>
-<h1 id="延申"><a href="#延申" class="headerlink" title="延申"></a>延申</h1><p>到这里我的需求就全部完成了，不过还有一些问题没有解决；比如说tcpkill和killcx的区别，比如说它们切断tcp连接的原理，这里为有需要或者有兴趣的同学科普一下.(｡￫‿￩｡)</p>
-<h2 id="tcpkill-killcx切断tcp连接的原理"><a href="#tcpkill-killcx切断tcp连接的原理" class="headerlink" title="tcpkill/killcx切断tcp连接的原理"></a>tcpkill/killcx切断tcp连接的原理</h2><p>实际上这些工具都是通过模拟发送RST包来强制关闭tcp连接的，RST标示复位、用于关闭异常的tcp连接。<br>但是发送RST包需要知道SEQ（Sequence Number）和ACK（Acknowledgment Number）号；<br>这里就体现出了tcpkill和killcx的区别啦~也就是下文要说的tcpkill的局限性所在。</p>
-<h2 id="tcpkill的局限性"><a href="#tcpkill的局限性" class="headerlink" title="tcpkill的局限性"></a>tcpkill的局限性</h2><p>从“实际使用”中，大家也看到了，tcpkill不会立刻关闭已经建立的连接；而是在连接发生网络交互之后才关闭的。<br>这就是tcpkill的断流策略，它会监听指定的端口；发现符合条件的连接报文之后，根据报文中得到的SEQ/ACK号模拟RST包然后发送，从而断流。</p>
-<p>在本文的使用场景中，这种策略是没有问题的；<br>但是在实际场景中，遇到的关闭不了的tcp连接，往往是“非活跃”的；这时tcpkill就起不到作用了。</p>
-<p>不过，程序员是有办法的~</p>
-<h2 id="切断非活跃tcp连接的备选工具"><a href="#切断非活跃tcp连接的备选工具" class="headerlink" title="切断非活跃tcp连接的备选工具"></a>切断非活跃tcp连接的备选工具</h2><p>现成的答案就是killcx。不同于tcpkill守株待兔的策略，killcx选择主动出击；<br>killcx伪造了一条tcp请求，发送给服务端；然后另一端会回送一个ACK报文，其中携带了正确的SEQ/ACK号；然后killcx就能顺利断流啦~</p>
-<p>ps：不过写这篇博文查资料的时候看到有群众报告killcx没能成功关闭连接；然后一位兄台开创性地提出了tcpkill和killcx一起使用的建议；很有创见。</p>
-<h2 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h2><ol>
-<li><p><a href="http://rtomaszewski.blogspot.sk/2012/11/how-to-forcibly-kill-established-tcp.html" target="_blank" rel="noopener">How to forcibly kill an established TCP connection in Linux</a></p>
-<p> 我是在一个类似于stack overflow的英文网站查到tcpkill的；回头看了下那里的答案，是来源于一个英文blog；刚刚点开看了一下，里面的细节描述和清晰，每一步操作都有图示；英语ok的同学可以去看一看</p>
-</li>
-<li><p><a href="https://huoding.com/2014/11/06/383" target="_blank" rel="noopener">关于FIN_WAIT1</a></p>
-<p> 这篇文章介绍了tcp连接关闭的一些细节，值得一看</p>
-</li>
-<li><p><a href="https://yq.aliyun.com/articles/59308" target="_blank" rel="noopener">如何干掉一条tcp 连接（活跃/非活跃）</a></p>
-<p> 这篇文章重点突出了一个“莽”，作者遇到“非活跃”的连接问题，偏偏又只搜到了tcpkill这个工具，默默选择了查看源码/修改源码/重新编译的方法，硬是把tcpkill做成了killcx的效果，也是很厉害了。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/22/linux环境下如何切断指定的tcp连接/" rel="next" title="linux环境下如何切断指定的tcp连接">
+                <i class="fa fa-chevron-left"></i> linux环境下如何切断指定的tcp连接
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -651,14 +509,19 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -679,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -780,6 +652,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当前使用最广泛的终端–cmder"><span class="nav-number">2.</span> <span class="nav-text">当前使用最广泛的终端–cmder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hypers的安装，以及一些配置tips"><span class="nav-number">3.</span> <span class="nav-text">Hypers的安装，以及一些配置tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些bash-on-windows的使用tips"><span class="nav-number">4.</span> <span class="nav-text">一些bash on windows的使用tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyper的不足"><span class="nav-number">5.</span> <span class="nav-text">Hyper的不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些闲话"><span class="nav-number">6.</span> <span class="nav-text">一些闲话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展阅读"><span class="nav-number">7.</span> <span class="nav-text">拓展阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -907,6 +795,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
 
   
 
